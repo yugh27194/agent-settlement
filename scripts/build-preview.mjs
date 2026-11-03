@@ -34,7 +34,7 @@ import './public/room.js';
 const result = await build({
   stdin: { contents: ENTRY, resolveDir: root, loader: 'js' },
   bundle: true,
-  format: 'iife',
+  format: 'esm',
   platform: 'browser',
   target: 'es2022',
   minify: true,
@@ -45,6 +45,8 @@ const result = await build({
     setup(b) {
       // 미리보기는 로그인 없이 돈다. Firebase SDK 주소는 묶지 않는다
       b.onResolve({ filter: /^https:/ }, (a) => ({ path: a.path, external: true }));
+      b.onResolve({ filter: /^firebase-admin/ }, (a) => ({ path: a.path, namespace: 'firebase-stub' }));
+      b.onLoad({ filter: /.*/, namespace: 'firebase-stub' }, () => ({ contents: 'export {}', loader: 'js' }));
       b.onResolve({ filter: /^node:/ }, (a) => ({ path: a.path, namespace: 'shim' }));
       b.onLoad({ filter: /.*/, namespace: 'shim' }, (a) => {
         if (!SHIMS[a.path]) throw new Error(`shim 없음: ${a.path}`);
@@ -71,6 +73,6 @@ writeFileSync(out, `<title>내 비서 설정 테스트</title>
 <style>${css}</style>
 ${body}
 ${readFileSync(path.join(root, 'scripts/preview/dock.html'), 'utf8')}
-<script>${js}</script>
+<script type="module">${js}</script>
 `);
 console.log(`${out}: ${(Buffer.byteLength(readFileSync(out)) / 1024).toFixed(0)}KB`);
