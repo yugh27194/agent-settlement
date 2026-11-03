@@ -1,0 +1,19 @@
+
+/* ---------- 미리보기 테스트 도구 ---------- */
+.dock { position: fixed; z-index: 1000; right: max(12px, env(safe-area-inset-right, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; align-items: flex-end; gap: 8px; max-width: calc(100vw - 24px); }
+.dock-toggle { appearance: none; border: 0; border-radius: 999px; padding: 9px 14px; font: inherit; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0; color: #fff; background: var(--tint); cursor: pointer; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25); }
+.dock-panel { width: 320px; max-width: 100%; max-height: min(70vh, 560px); overflow: auto; background: var(--card); color: var(--label); border-radius: 14px; padding: 14px; box-shadow: 0 6px 30px rgba(0, 0, 0, 0.28); font-size: 0.8125rem; letter-spacing: 0; display: grid; gap: 10px; }
+.dock-panel[hidden] { display: none; }
+.dock-panel h2 { font-size: 0.9375rem; font-weight: 700; margin: 0; }
+.dock-note { margin: 0; color: var(--label-2); line-height: 1.45; }
+.dock-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.dock-label { flex: 1 0 100%; color: var(--label-2); }
+.dock-label b { color: var(--label); font-weight: 600; font-variant-numeric: tabular-nums; }
+.dock-row button { appearance: none; flex: 1 1 auto; border: 0; border-radius: 9px; padding: 7px 10px; font: inherit; font-weight: 600; color: var(--tint); background: var(--tint-soft); cursor: pointer; }
+.dock-row button:focus-visible, .dock-toggle:focus-visible { outline: 2px solid var(--tint); outline-offset: 2px; }
+.dock-status { margin: 0; color: var(--tint); min-height: 1em; }
+.dock-status:empty { display: none; }
+.dock-panel summary { cursor: pointer; font-weight: 600; }
+.dock-list { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 6px; line-height: 1.4; color: var(--label-2); }
+.dock-list b { color: var(--label); }
+@media (max-width: 500px) { .dock-panel { max-height: 60vh; } }

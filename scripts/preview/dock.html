@@ -1,0 +1,26 @@
+<aside class="dock" aria-label="테스트 도구">
+  <section class="dock-panel" id="dock-panel" hidden>
+    <h2>#5 테스트 도구</h2>
+    <p class="dock-note">실제 서버 코드가 이 페이지 안에서 돌아요. 원본 저장소와 배포 서버에는 닿지 않으니 마음껏 눌러 보세요. 가상의 값만 넣어 주세요.</p>
+    <div class="dock-row"><span class="dock-label">다시 시작</span>
+      <button type="button" data-dock="fresh">'나'를 새 사용자로</button>
+      <button type="button" data-dock="set">모두 설정 완료</button></div>
+    <div class="dock-row"><span class="dock-label">가상 시각 <b id="dock-now"></b></span>
+      <button type="button" data-dock="day">하루 뒤로</button>
+      <button type="button" data-dock="payday">다음 25일로</button></div>
+    <p class="dock-status" id="dock-status" role="status"></p>
+    <details open><summary>확인할 순서</summary>
+      <ol class="dock-list">
+        <li><b>처음 설정.</b> '설정하기'에서 세 단계를 고르고 시작해요.</li>
+        <li><b>규칙 저장.</b> '내 비서'에서 값을 바꾸면 저장 버튼이 나와요. 저장한 뒤 맨 아래 변경 기록을 펼쳐 봐요.</li>
+        <li><b>기억.</b> 5개까지 더하고, 기억을 눌러 고치거나 지우고, 공유를 꺼 봐요.</li>
+        <li><b>한도.</b> '모두 설정 완료'로 다시 시작해요. 철수로 바꿔 한도를 ₩100,000으로 낮추고 청구서를 보내면, 철수(₩138,724)와 민수(₩254,655)에게 물어요.</li>
+        <li><b>지정일.</b> 철수·민수로 각각 청구서를 받으면 '누가 누구에게'에 송금이 생겨요. 철수는 25일 예약이고, '다음 25일로'를 누르면 알림이 와요.</li>
+        <li><b>직접 보내기.</b> 청구서를 보내기 전에 철수의 보낼 시기를 직접으로 바꾸면, 알림 없이 '직접 보내기'로 표시돼요.</li>
+        <li><b>계좌.</b> 나로 바꿔 받을 계좌를 바꾸면 내게 오는 대기 중 송금에 새 계좌가 들어가요. 민수로 바꿔 송금 화면에서 확인해요.</li>
+        <li><b>이의.</b> ''나'를 새 사용자로'로 다시 시작해 청구서를 보내면 민수의 비서가 근거로 이의를 내요.</li>
+      </ol></details>
+    <p class="dock-note">토스 앱 열기와 QR 이미지는 이 미리보기에서 동작하지 않아요.</p>
+  </section>
+  <button type="button" class="dock-toggle" id="dock-toggle" data-dock="toggle" aria-controls="dock-panel" aria-expanded="false">테스트 도구</button>
+</aside>
